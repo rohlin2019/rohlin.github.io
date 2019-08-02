@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>xvue-ui新增小功能V1.3.16 | Hexo</title>
+  <meta name="description" content="小鸿这几天由于工作时间的关系，没来得及更新新组件，此次更新是对原有Dialog弹框和Message消息框更新一些小功能，让我们来看看更新了哪些新功能！ Dialog弹框弹框右上角新增关闭按钮。 isCancelBtn：新增是否显示取消按钮，Boolean类型，默认值true。 isOkBtn：新增是否显示确定按钮，Boolean类型，默认值true。 isCancel：新增会否显示弹窗右上角关闭按">
+<meta name="keywords" content="xvue-ui框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xvue-ui新增小功能V1.3.16">
+<meta property="og:url" content="https://rohlin2019.github.io/rohlin.github.io/2019/04/14/xvue-ui新增小功能V1-3-16/index.html">
+<meta property="og:site_name" content="程序员小鸿 - 00后程序员">
+<meta property="og:description" content="小鸿这几天由于工作时间的关系，没来得及更新新组件，此次更新是对原有Dialog弹框和Message消息框更新一些小功能，让我们来看看更新了哪些新功能！ Dialog弹框弹框右上角新增关闭按钮。 isCancelBtn：新增是否显示取消按钮，Boolean类型，默认值true。 isOkBtn：新增是否显示确定按钮，Boolean类型，默认值true。 isCancel：新增会否显示弹窗右上角关闭按">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.xvue.cn/blog/article_imgs/964a69e5f848bc8082cbf374ad4e9f0.png">
+<meta property="og:image" content="https://www.xvue.cn/blog/article_imgs/f530eebc03e323a2d9176e58de4eb58.png">
+<meta property="og:image" content="https://www.xvue.cn/blog/article_imgs/e4b548ec8b211919dec6b8d2b5a0518.png">
+<meta property="og:image" content="https://www.xvue.cn/blog/article_imgs/3654be78bad1373b765a27c823dd761.png">
+<meta property="og:updated_time" content="2019-08-02T02:03:27.883Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xvue-ui新增小功能V1.3.16">
+<meta name="twitter:description" content="小鸿这几天由于工作时间的关系，没来得及更新新组件，此次更新是对原有Dialog弹框和Message消息框更新一些小功能，让我们来看看更新了哪些新功能！ Dialog弹框弹框右上角新增关闭按钮。 isCancelBtn：新增是否显示取消按钮，Boolean类型，默认值true。 isOkBtn：新增是否显示确定按钮，Boolean类型，默认值true。 isCancel：新增会否显示弹窗右上角关闭按">
+<meta name="twitter:image" content="https://www.xvue.cn/blog/article_imgs/964a69e5f848bc8082cbf374ad4e9f0.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://rohlin2019.github.io/rohlin.github.io/2019/04/14/xvue-ui新增小功能V1-3-16/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="程序员小鸿 - 00后程序员" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/rohlin.github.io/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="https://www.xvue.cn/blog/blog_avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">程序员小鸿</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">00后程序员</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/rohlin.github.io/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/rohlin.github.io/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/rohlin.github.io/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/rohlin.github.io/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/rohlin.github.io/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/rohlin.github.io/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/rohlin.github.io/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/rohlin.github.io/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/rohlin.github.io/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>关注作者微信公众号<span style="color:red;">"程序员小鸿"</span>,获取更多相关知识！<img src="https://www.xvue.cn/blog/xiaohong_ercode.jpg"></img></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/rohlin.github.io/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/rohlin.github.io/tags/xvue-ui框架/">xvue-ui框架</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/rohlin.github.io/tags/互联网资讯/">互联网资讯</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/rohlin.github.io/tags/关于我/">关于我</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/rohlin.github.io/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/rohlin.github.io/tags/前端-后端/">前端/后端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/rohlin.github.io/tags/程序员资讯/">程序员资讯</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/rohlin.github.io/tags/面试经历/">面试经历</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/rohlin.github.io/tags/JavaScript/" style="font-size: 13px;">JavaScript</a> <a href="/rohlin.github.io/tags/xvue-ui框架/" style="font-size: 14px;">xvue-ui框架</a> <a href="/rohlin.github.io/tags/互联网资讯/" style="font-size: 13px;">互联网资讯</a> <a href="/rohlin.github.io/tags/关于我/" style="font-size: 13px;">关于我</a> <a href="/rohlin.github.io/tags/前端/" style="font-size: 13px;">前端</a> <a href="/rohlin.github.io/tags/前端-后端/" style="font-size: 13px;">前端/后端</a> <a href="/rohlin.github.io/tags/程序员资讯/" style="font-size: 13px;">程序员资讯</a> <a href="/rohlin.github.io/tags/面试经历/" style="font-size: 13px;">面试经历</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/rohlin.github.io/archives/2019/07/">七月 2019</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/rohlin.github.io/archives/2019/06/">六月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/rohlin.github.io/archives/2019/04/">四月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/rohlin.github.io/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/rohlin.github.io/2019/07/05/【推荐】你不知道的20种黑帽seo技术大揭秘！附黑客专业术语/" class="title">【推荐】你不知道的20种黑帽seo技术大揭秘！附黑客专业术语</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-05T03:03:17.000Z" itemprop="datePublished">2019-07-05</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/rohlin.github.io/2019/07/04/程序员的生活原来是这么的扎心！/" class="title">程序员的生活原来是这么的扎心！</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-04T03:00:58.000Z" itemprop="datePublished">2019-07-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/rohlin.github.io/2019/07/03/JavaScript异步和等待的介绍/" class="title">JavaScript异步和等待的介绍</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-03T02:51:02.000Z" itemprop="datePublished">2019-07-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/rohlin.github.io/2019/07/02/前端和后端的区别？/" class="title">前端和后端的区别？</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-02T02:47:19.000Z" itemprop="datePublished">2019-07-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/rohlin.github.io/2019/07/01/我辞职了，理由竟然是………/" class="title">我辞职了，理由竟然是………</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-07-01T02:40:27.000Z" itemprop="datePublished">2019-07-01</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-xvue-ui新增小功能V1-3-16" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      xvue-ui新增小功能V1.3.16
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/rohlin.github.io/2019/04/14/xvue-ui新增小功能V1-3-16/" class="article-date">
+	  <time datetime="2019-04-14T01:59:12.000Z" itemprop="datePublished">2019-04-14</time>
+	</a>
+</span>
+        
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/rohlin.github.io/tags/xvue-ui框架/">xvue-ui框架</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/rohlin.github.io/2019/04/14/xvue-ui新增小功能V1-3-16/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>小鸿这几天由于工作时间的关系，没来得及更新新组件，此次更新是对原有Dialog弹框和Message消息框更新一些小功能，让我们来看看更新了哪些新功能！</p>
+<h3 id="Dialog弹框"><a href="#Dialog弹框" class="headerlink" title="Dialog弹框"></a>Dialog弹框</h3><p>弹框右上角新增关闭按钮。</p>
+<p>isCancelBtn：新增是否显示取消按钮，Boolean类型，默认值true。</p>
+<p>isOkBtn：新增是否显示确定按钮，Boolean类型，默认值true。</p>
+<p>isCancel：新增会否显示弹窗右上角关闭按钮，Boolean类型，默认值true。</p>
+<p>content：content不仅仅支持文字那么简单哦，目前还可以支持html的任何标签，比如在content放一张图片，代码是这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$Dialog.default(&#123;</span><br><span class="line">    title:<span class="string">'自定义content内容'</span>,</span><br><span class="line">    content:<span class="string">'&lt;div style="text-align:center;"&gt;&lt;img style="width:200px;height:200px;" src="http://www.xvue.cn/dist/static/img/xvue-ui.dd56c7b.png"&gt;&lt;/img&gt;&lt;/div&gt;'</span>,</span><br><span class="line">    isCancel:<span class="literal">false</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>显示效果<br><img src="https://www.xvue.cn/blog/article_imgs/964a69e5f848bc8082cbf374ad4e9f0.png" alt="photo" title="关注微信公众号，程序员小鸿"><br>不仅仅是这些功能，小鸿还对原有的close()函数更名为cover()函数，一般来讲是不能轻易更改框架原有的功能，这样会对原有用户更新框架代码造成未知的错误，所以close()还保留，并新增cover()函数，因为框架用的人还不多，以后小鸿一定认真考察命名方面的问题。</p>
+<p>cancel()：点击取消按钮触发的回调函数。</p>
+<p>ok()：点击确定按钮触发的回调函数。</p>
+<p>cover()：点击弹框外部灰色背景触发的回调函数。</p>
+<p>这三个函数都返回一个内部Dialog对象，可修改原先设置的标题、内容、关闭弹框等一系列相关属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$Dialog.default(&#123;</span><br><span class="line">  title:<span class="string">'温馨提醒'</span>,</span><br><span class="line">  content:<span class="string">'欢迎使用xvue-ui框架'</span>,</span><br><span class="line">  ok(e)&#123;</span><br><span class="line">      e.isShow = <span class="literal">false</span>; <span class="comment">//关闭弹框</span></span><br><span class="line">      e.dialogList[<span class="number">0</span>].title = <span class="string">'修改后的标题'</span>; <span class="comment">//修改标题</span></span><br><span class="line">      e.dialogList[<span class="number">0</span>].content= <span class="string">'修改后的内容'</span>; <span class="comment">//修改内容</span></span><br><span class="line">      e.dialogList[<span class="number">0</span>].cancelText = <span class="string">'取消按钮'</span>; <span class="comment">//修改取消按钮的内容</span></span><br><span class="line">      e.dialogList[<span class="number">0</span>].confirmText = <span class="string">'确定按钮'</span>; <span class="comment">//修改确定按钮的内容</span></span><br><span class="line">      e.dialogList[<span class="number">0</span>].isCancelBtn = <span class="literal">false</span>; <span class="comment">//隐藏取消按钮</span></span><br><span class="line">      e.dialogList[<span class="number">0</span>].isOkBtn = <span class="literal">false</span>; <span class="comment">//隐藏确定按钮</span></span><br><span class="line">      e.dialogList[<span class="number">0</span>].isClose = <span class="literal">false</span>; <span class="comment">//隐藏右上角关闭按钮      </span></span><br><span class="line">  &#125;</span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="message消息框"><a href="#message消息框" class="headerlink" title="message消息框"></a>message消息框</h3><p>backgroundColor：新增自定义消息框背景颜色，凡是css支持的颜色值都能使用。</p>
+<p>textColor：新增自定义消息框文字颜色，凡是css支持的颜色值都能使用。</p>
+<p>slots：优化内部代码，可定义消息框内容，支持html标签，使用slots属性content属性将不会生效，content属性不支持html标签。</p>
+<p>代码片段</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$Message.default(&#123;</span><br><span class="line">    slots:<span class="string">'&lt;div style="text-align:center;"&gt;&lt;img style="width:50px;height:50px;" src="http://www.xvue.cn/dist/static/img/xvue-ui.dd56c7b.png"&gt;&lt;p style="text-align:center;"&gt;欢迎来到xvue-ui官方网站&lt;/p&gt;&lt;/div&gt;'</span>,</span><br><span class="line">    backgroundColor:<span class="string">'#fff'</span>,</span><br><span class="line">    textColor:<span class="string">'rgb(99,205,255)'</span>,</span><br><span class="line">    duration:<span class="number">1</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>效果图<br><img src="https://www.xvue.cn/blog/article_imgs/f530eebc03e323a2d9176e58de4eb58.png" alt="photo" title="关注微信公众号，程序员小鸿"></p>
+<p>框架后续的更新与迭代还需要你们认真反馈，小鸿收到你们反馈的新功能或者bug都会安排逐一开发修复。扫一扫下方二维码关注公众号：程序员小鸿 。学习更多知识!<br><img src="https://www.xvue.cn/blog/article_imgs/e4b548ec8b211919dec6b8d2b5a0518.png" alt="photo" title="关注微信公众号，程序员小鸿"><br><img src="https://www.xvue.cn/blog/article_imgs/3654be78bad1373b765a27c823dd761.png" alt="photo" title="关注微信公众号，程序员小鸿"></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://rohlin2019.github.io/rohlin.github.io/2019/04/14/xvue-ui新增小功能V1-3-16/" title="xvue-ui新增小功能V1.3.16" target="_blank" rel="external">https://rohlin2019.github.io/rohlin.github.io/2019/04/14/xvue-ui新增小功能V1-3-16/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://www.xvue.cn/blog/blog_avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">程序员小鸿</span><small class="ml-1x">00后程序员</small></a></h3>
+        <div>全栈技术分享，终身学习者</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/rohlin.github.io/2019/06/13/我的一年零六个月程序生涯：开挂人生/" title="我的一年零六个月程序生涯：开挂人生"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/rohlin.github.io/2019/04/10/前端xvue-ui框架以及官方网站正式上线啦！/" title="前端xvue-ui框架以及官方网站正式上线啦！"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/rohlin.github.io/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/rohlin.github.io/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/rohlin.github.io/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/rohlin.github.io/js/plugin.min.js"></script>
+<script src="/rohlin.github.io/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/rohlin.github.io/',
+        CONTENT_URL: '/rohlin.github.io/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/rohlin.github.io/js/insight.js"></script>
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
